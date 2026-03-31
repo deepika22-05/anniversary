@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy 5th Anniversary ❤️</title>
+
+<style>
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom, #000000, #1a1a2e);
+    color: white;
+    text-align: center;
+}
+
+/* Heading */
+h1 {
+    margin-top: 40px;
+    font-size: 38px;
+    color: #ff4d6d;
+}
+
+/* Typing text */
+#typing {
+    width: 80%;
+    margin: 20px auto;
+    font-size: 20px;
+    border-right: 2px solid white;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* Slideshow */
+.slideshow img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 4px solid pink;
+    margin-top: 20px;
+    object-fit: cover;
+}
+
+/* LARGE QUOTES */
+.quote {
+    font-size: 26px;
+    width: 85%;
+    margin: 25px auto;
+    line-height: 1.9;
+    background: rgba(255,255,255,0.15);
+    padding: 25px;
+    border-radius: 20px;
+    color: #ffe4ec;
+    box-shadow: 0 0 15px rgba(255,77,109,0.5);
+}
+
+/* Timeline */
+.timeline {
+    margin: 30px auto;
+    width: 80%;
+    text-align: left;
+}
+.timeline div {
+    margin: 10px 0;
+}
+
+/* Button */
+button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #ff4d6d;
+    border: none;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+/* Hidden Letter */
+#letter {
+    display: none;
+    width: 80%;
+    margin: 20px auto;
+    font-size: 20px;
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Final Message */
+#final {
+    display: none;
+    font-size: 24px;
+    color: pink;
+}
+
+/* Fireworks */
+.firework {
+    position: fixed;
+    width: 5px;
+    height: 5px;
+    background: white;
+    animation: explode 1s ease-out forwards;
+}
+@keyframes explode {
+    to {
+        transform: translate(var(--x), var(--y));
+        opacity: 0;
+    }
+}
+</style>
+
+</head>
+<body>
+
+<h1>Happy 5th Anniversary My Love ❤️</h1>
+
+<audio id="mysong">
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<button onclick="playPart()">Click to Hear Our Special Moment 💖</button>
+
+<script>
+</script>
+<div id="typing"></div>
+
+<div class="slideshow">
+    <img id="slide" src="photo1.jpg">
+</div>
+
+<!-- 💖 LARGE QUOTES ADDED -->
+<div class="quote">
+These 5 years with you are not just memories… they are my life itself 💖  
+Every second I spent with you became a story I will cherish forever.  
+You came into my life like a blessing and turned my ordinary days into something magical ✨  
+</div>
+
+<div class="quote">
+My love… you are the reason behind my smile, my strength in my weakest moments,  
+and the peace I search for in this chaotic world 💕  
+Even if I had a thousand lives, I would choose you in every single one ❤️  
+</div>
+
+<div class="quote">
+Loving you is not a choice, it’s the most beautiful part of my existence 💫  
+No matter how much time passes, my love for you only grows stronger and deeper 🥹  
+You are my today, my tomorrow, and everything I ever dreamed of 💖  
+</div>
+
+<div class="quote">
+We may have had fights, misunderstandings, and tough days…  
+but through everything, we never gave up on each other ❤️  
+And that is what makes our love so real and so special 💞  
+</div>
+
+<div class="timeline">
+    <div>💖 The day we met – The beginning of everything</div>
+    <div>💞 First smile – I fell for you</div>
+    <div>💕 Our memories – Laughs, fights, love</div>
+    <div>❤️ Today – 5 beautiful years together</div>
+</div>
+
+<button onclick="openLetter()">Open My Heart 💌</button>
+<button onclick="finalSurprise()">Final Surprise 🎁</button>
+
+<div id="letter">
+My love ❤️,<br><br>
+These 5 years with you are the most beautiful part of my life.  
+You stood with me in my worst and loved me at my best.  
+I may not say it every day, but you mean everything to me.  
+I promise to stay with you forever... no matter what 💖  
+</div>
+
+<p id="final">💖 I LOVE YOU FOREVER MY LOVE 💖</p>
+
+<script>
+let text = "My love... these 5 years with you are my happiest memories 💖";
+let i = 0;
+
+function typing() {
+    if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typing, 50);
+    }
+}
+typing();
+
+let images = ["photo1.jpg","photo2.jpg","photo3.jpg"];
+let index = 0;
+
+setInterval(() => {
+    index = (index + 1) % images.length;
+    document.getElementById("slide").src = images[index];
+}, 2000);
+
+function openLetter() {
+    document.getElementById("letter").style.display = "block";
+}
+
+function finalSurprise() {
+    document.getElementById("final").style.display = "block";
+    fireworks();
+}
+
+function fireworks() {
+    for (let i = 0; i < 60; i++) {
+        let fw = document.createElement("div");
+        fw.className = "firework";
+        fw.style.left = "50%";
+        fw.style.top = "50%";
+        fw.style.setProperty('--x', (Math.random()*400-200)+'px');
+        fw.style.setProperty('--y', (Math.random()*400-200)+'px');
+        document.body.appendChild(fw);
+
+        setTimeout(() => fw.remove(), 1000);
+    }
+}
+function playPart() {
+    let song = document.getElementById("mysong");
+
+    song.currentTime = 175; // 2:55
+    song.play();
+
+    heartRain(); // 💕 start hearts
+
+    setTimeout(() => {
+        song.pause();
+    }, 40000); // 3:35
+}
+
+ function heartRain() {
+    for (let i = 0; i < 30; i++) {
+        let heart = document.createElement("div");
+        heart.innerHTML = "💖";
+        heart.style.position = "fixed";
+        heart.style.top = "-10px";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = Math.random() * 20 + 20 + "px";
+        heart.style.animation = "fall 3s linear forwards";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 3000);
+    }
+}
+
+</script>
+</body>
+</html>
